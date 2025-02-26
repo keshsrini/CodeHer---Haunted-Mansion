@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haunted Mansion - CodeHer Challenge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/language-selector.css">
+</head>
+<body>
+    <div class="container" id="login-screen">
+        <div class="login-form">
+            <h1>Welcome to the Haunted Mansion</h1>
+            <p>Enter the code pin to enter the mansion with your teammates</p>
+            <p>You have 1 hour to solve all challenges and escape!</p>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Your username">
+                <input type="text" id="pin-code" placeholder="Enter pin code">
+                <button id="enter-btn">Enter the Mansion</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game screens will be dynamically shown/hidden with JavaScript -->
+    <div class="container hidden" id="mansion-map">
+        <div class="game-header">
+            <div class="timer">Time remaining: <span id="timer">60:00</span></div>
+            <div class="gold-coins">Gold coins: <span id="coins">100</span></div>
+            <div class="player-name">Player: <span id="player-name"></span></div>
+        </div>
+        <h1>Haunted Mansion Map</h1>
+        <p>Click on a door to solve a challenge. Solve all 5 to escape!</p>
+        <div class="doors-container">
+            <div class="door" data-door="1">Door 1</div>
+            <div class="door" data-door="2">Door 2</div>
+            <div class="door" data-door="3">Door 3</div>
+            <div class="door" data-door="4">Door 4</div>
+            <div class="door" data-door="5">Door 5</div>
+        </div>
+    </div>
+
+    <!-- Challenge Template -->
+    <div class="container hidden" id="challenge-screen">
+        <div class="game-header">
+            <div class="timer">Time remaining: <span id="challenge-timer">60:00</span></div>
+            <div class="gold-coins">Gold coins: <span id="challenge-coins">100</span></div>
+            <button id="back-to-map">Back to Map</button>
+        </div>
+        <div class="challenge-container">
+            <h2 id="challenge-title">Challenge Title</h2>
+            <p id="challenge-description">Challenge description will appear here.</p>
+            <div class="language-selector">
+                <label for="language-select">Choose language:</label>
+                <select id="language-select">
+                    <option value="javascript" selected>JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                </select>
+            </div>
+            <div class="code-editor">
+                <textarea id="code-input" placeholder="Write your code here..."></textarea>
+            </div>
+            <div class="test-cases">
+                <h3>Test Cases</h3>
+                <pre id="test-cases-display"></pre>
+            </div>
+            <div class="buttons">
+                <button id="hint-btn">Get Hint (-10 coins)</button>
+                <button id="submit-btn">Submit Solution</button>
+            </div>
+            <div class="hint-container hidden" id="hint-box">
+                <p id="hint-text"></p>
+            </div>
+            <div class="result-container hidden" id="result-box">
+                <h3 id="result-title"></h3>
+                <p id="result-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Screen -->
+    <div class="container hidden" id="success-screen">
+        <h1>Congratulations!</h1>
+        <p>You have escaped the Haunted Mansion!</p>
+        <div class="badge">
+            <h2>🏆 HOPE-CodeHer Achiever 🏆</h2>
+            <p>Completed in: <span id="completion-time"></span></p>
+            <p>Coins remaining: <span id="final-coins"></span></p>
+            <div class="womens-day-message">
+                <h3>🌟 Happy Women's Day! 🌟</h3>
+                <p>Celebrating your brilliance in coding! Keep breaking barriers!</p>
+            </div>
+        </div>
+        <button id="view-leaderboard-btn">View Leaderboard</button>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div class="container hidden" id="leaderboard-screen">
+        <h1>Leaderboard</h1>
+        <table id="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Time</th>
+                    <th>Coins</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+                <!-- Leaderboard entries will be added here -->
+            </tbody>
+        </table>
+        <button id="play-again-btn">Play Again</button>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div class="container hidden" id="game-over-screen">
+        <h1>Game Over</h1>
+        <p>Time's up! The ghost has found you!</p>
+        <button id="try-again-btn">Try Again</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/languageSupport.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/challenges.js"></script>
+    <script src="js/leaderboard.js"></script>
+</body>
+</html>
